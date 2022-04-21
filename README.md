@@ -12,6 +12,7 @@ Django - Book App
 ### Tools
 Django Framework\
 BootStrap\
+fontawesome\
 SweetAlert\
 JQuery\
 sqlite\
