@@ -1,0 +1,25 @@
+{% extends 'books/Base.html' %}
+
+
+{% block stylesheets %}
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/static/books/css/new.css">
+{% endblock %}
+
+{% block title%}
+{{author.first_name}}'s Details
+{% endblock %}
+
+{% block content %}
+<ul>
+    <li>
+        {{ author.first_name }} {{ author.last_name }}
+    </li>
+    <hr />
+    {% for book in author.books %}
+    <li>
+        <a href="/books/{{book.id}}">{{ book.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

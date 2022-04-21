@@ -1,0 +1,25 @@
+{% extends 'books/Base.html' %}
+
+{% block stylesheets %}
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/static/books/css/new.css">
+{% endblock %}
+
+{% block title%}
+Book Title 
+{% endblock %}
+
+{% block content %}
+
+<form action="" method="post">
+    <p class="text-center">
+        <a class="btn btn-outline-primary" href="/books">Home</a>
+    </p>
+    <p class="text-center">Add or Edit a Book</p>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <button type="reset">Reset</button>
+
+</form>
+{% endblock%}
