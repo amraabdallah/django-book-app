@@ -1,18 +1,19 @@
 version: 2.1
 
-commands:
-  print_pipeline_id:
-    steps:
-      - run: echo $CIRCLE_WORKFLOW_ID
-
 jobs:
-  save_hello_world_output:
+  this_job_will_cause_error:
     docker:
-      - image: alpine
+      - image: circleci/node:13.8.0
     steps:
-      - print_pipeline_id
+      - run:
+          command: cat ss
+          
+      - run:
+          name: this will run when a job fail
+          command: echo "job failed"
+          when: on_fail
 
 workflows:
   my_workflow:
     jobs:
-      - save_hello_world_output
+      - this_job_will_cause_error
