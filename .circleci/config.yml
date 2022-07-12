@@ -1,28 +1,12 @@
 version: 2.1
 jobs:
-  print_hello:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - run:
-          name: "Say Hello"
-          command: echo Hello
-  print_world:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - run:
-          name: "Say World"
-          command: echo "World"
   print_name:
     docker:
-      - image: circleci/node:13.8.0
+      - image: alpine
     steps:
+      - checkout
       - run:
          command: echo $name
-
 workflows:
   default:
     jobs:
