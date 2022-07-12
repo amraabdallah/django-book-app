@@ -26,8 +26,4 @@ jobs:
 workflows:
   default:
     jobs:
-      - print_hello
-      - print_world: 
-          requires: [print_hello]
-      - print_name:
-          requires: [print_world]
+      - print_name
