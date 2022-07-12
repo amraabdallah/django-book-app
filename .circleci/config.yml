@@ -16,9 +16,18 @@ jobs:
       - run:
           name: "Say World"
           command: echo "World"
+  print_name:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:
+         command: echo $name
+
 workflows:
   default:
     jobs:
       - print_hello
       - print_world: 
           requires: [print_hello]
+      - print_name:
+          requires: [print_world]
