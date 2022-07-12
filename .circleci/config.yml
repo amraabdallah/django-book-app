@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: "Say Hello"
-          command: "echo Hello"
+          command: echo Hello
   print_world:
     docker:
       - image: circleci/node:13.8.0
@@ -15,11 +15,12 @@ jobs:
       - checkout
       - run:
         name: "Say World"
-        command: "echo World!"
+        command: echo World!
 workflows:
   default:
     jobs:
       - print_hello
       - print_world:
-        requires: [print_hello]
+        - requires: 
+          - print_hello
 
